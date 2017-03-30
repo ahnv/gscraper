@@ -3,6 +3,9 @@
 	"version": "1.0.0",
 	"description": "Google Images Scraper",
 	"main": "server.js",
+	"scripts": {
+    	"start": "node server.js"
+  	},
 	"author": "Abhinav Dhiman",
 	"dependencies": {
 		"cheerio": "latest",
