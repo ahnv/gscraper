@@ -1,0 +1,15 @@
+{
+	"name": "gscrape",
+	"version": "1.0.0",
+	"description": "Google Images Scraper",
+	"main": "server.js",
+	"author": "Abhinav Dhiman",
+	"dependencies": {
+		"cheerio": "latest",
+		"express": "latest",
+		"request": "latest",
+		"sharp": "latest",
+		"mongoose" : "latest",
+		"ejs": "latest"
+	}
+}

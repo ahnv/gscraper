@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+	<style type="text/css">
+		*{
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 300;
+		}
+		body{
+			background: #333;
+		}
+		.search {
+		    position: absolute;
+		    top: 30%;
+		    left: 50%;
+		    margin-left: -300px;
+		    margin-top: -54px;
+		    width: 600px;
+		}
+		.input-search{
+			background: none;
+			border: 0px;
+			width: 600px;
+			height: 80px;
+			font-size: 50px;
+			color: white;
+			border-bottom: #b3c33a 5px solid;
+			transition: 0.3s all ease-in-out;
+		}
+		.input-search:focus{
+			outline:none;
+		}
+		h1,h2{
+			color: white;
+			text-align: center;
+		}
+		h2 a{
+			color: white;
+			text-decoration: none;
+			padding-top: 50px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="search">
+		<h1>Google Image Scraper</h1>
+		<label for="search" class="search-label"></label>
+	    <input type="search" id="search" autocomplete="off" class="input-search" placeholder="search" />
+	    <br>
+	    <h2 ><a href="list">List All Searched Tags</a></h2>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	jQuery('input').keypress(function (e) {
+	  if (e.which == 13) {
+	  	$("#search").prop('disabled',true);
+	  	$("#search").css('border-bottom','#000 5px solid');
+	  	$.ajax({
+	      type: 'GET',
+	      url: '/scrape/'+$("#search").val(),
+	      success: function(result) {	      
+	  		$("#search").prop('disabled',false);
+		  	$("#search").css('border-bottom','#b3c33a 5px solid');
+	      },
+	      error: function(error){
+	  		$("#search").prop('disabled',false);
+		  	$("#search").css('border-bottom','#b3c33a 5px solid');
+	      }
+	    });
+	  }
+	});
+});
+</script>
+</body>
+</html>
