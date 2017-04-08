@@ -1,6 +1,5 @@
 # Google Images Scraper
 
-Cryptic Hunt features
   - First 15 images are scraped off Google Images
   - The Images are then compressed and Passed through a greyscale filter
   - Then Saved into a folder
